@@ -1,28 +1,28 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import './style.css';
-import Menu from "./menuApi.js"
+import Menu from "./menuApi.js"   //data in form of Array of Object
+import MenuCard from "./MenuCard"  // component in  Jsx.element(HTML)
+
 
 const Restaurent = () => {
     const [menuData, setMenuData] = useState(Menu);
-    console.log(menuData)  
-    const myCss = {color:"brown "}
+    // console.log(menuData)  
   return (
     <>
-    <div className='card-container'>
-        <div className='card'>
-            <div className='card-body'>
-                <span className='card-number card-circle subtle' style={myCss}>1</span>
-                <span className='card-author  subtle' style={{color:"red "}}>Break Fast</span>
-                <h2 className='card-title'>Maggie</h2>
-                <span className='card-describe subtle'>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda quod ea a recusandae nesciunt, enim harum suscipit omnis facilis est.
-                </span>
-                <div className='card-read'> Read Me </div>
-            </div>
-            {/* <img src={image} alt="images" className='card-media'/> */}
-            <span className='card-tag subtle'>Order Now</span>
+    <nav className='navbar'>
+        <div className='btn-group'>
+            <button className='btn-group__item'>Breakfast</button>
+            <button className='btn-group__item'>Lunch</button>
+            <button className='btn-group__item'>Evening</button>
+            <button className='btn-group__item'>Dinner</button>
+            <button className='btn-group__item'>All</button>
         </div>
-    </div>
+    </nav>
+
+
+    {/* passing ata from one(Parent) to another (Children) Componenet */}
+    {/* You can give any name here sendData */}
+    <MenuCard sendData={menuData}/>
     </>
   )
 }
